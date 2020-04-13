@@ -1,0 +1,39 @@
+import pygame
+import random
+
+pygame.init()
+screen = pygame.display.set_mode((800, 600))
+
+def WildPainting():
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    x = random.randint(0, screen.get_size()[0])
+    y = random.randint(0, screen.get_size()[1])
+    R = random.randint(50, 500)
+
+    pygame.draw.circle(screen, (r, g, b), (x, y), R)
+
+running = True
+FPS = 30
+clock = pygame.time.Clock()
+
+while running:
+    millis = clock.tick(FPS)
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_ESCAPE:
+                running = False
+            if event.key == pygame.K_1:
+                FPS = 5
+            if event.key == pygame.K_2:
+                FPS = 10
+            if event.key == pygame.K_3:
+                FPS = 20
+            if event.key == pygame.K_4:
+                FPS = 40
+
+    WildPainting()
+    pygame.display.flip()
