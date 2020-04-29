@@ -1,0 +1,9 @@
+import pymongo
+
+client = pymongo.MongoClient("mongodb+srv://AmanzholArystan:Gulmira123@cluster0-x9qss.mongodb.net/test?retryWrites=true&w=majority")
+mydb = client["mydatabase"]
+mycol = mydb["students"]
+
+myquery = { "address": "Mountain 21" }
+
+mycol.delete_one(myquery)

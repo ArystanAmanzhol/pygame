@@ -1,0 +1,7 @@
+import pymongo
+
+client = pymongo.MongoClient("mongodb+srv://AmanzholArystan:Gulmira@cluster0-x9qss.mongodb.net/test?retryWrites=true&w=majority")
+mydb = client["mydatabase"]
+mycol = mydb["students"]
+
+mycol.drop()
